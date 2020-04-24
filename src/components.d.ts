@@ -5,20 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { KatexOptions, } from "./components/my-component/my-component";
 export namespace Components {
     interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+        "expression": string;
+        "options": KatexOptions;
     }
 }
 declare global {
@@ -34,18 +25,9 @@ declare global {
 }
 declare namespace LocalJSX {
     interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+        "expression"?: string;
+        "onError"?: (event: CustomEvent<any>) => void;
+        "options"?: KatexOptions;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
