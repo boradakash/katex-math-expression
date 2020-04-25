@@ -7,12 +7,20 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { KatexOptions, } from "./components/my-component/my-component";
 export namespace Components {
+    interface KatexMath {
+    }
     interface MyComponent {
         "expression": string;
         "options": KatexOptions;
     }
 }
 declare global {
+    interface HTMLKatexMathElement extends Components.KatexMath, HTMLStencilElement {
+    }
+    var HTMLKatexMathElement: {
+        prototype: HTMLKatexMathElement;
+        new (): HTMLKatexMathElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -20,16 +28,20 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "katex-math": HTMLKatexMathElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface KatexMath {
+    }
     interface MyComponent {
         "expression"?: string;
         "onError"?: (event: CustomEvent<any>) => void;
         "options"?: KatexOptions;
     }
     interface IntrinsicElements {
+        "katex-math": KatexMath;
         "my-component": MyComponent;
     }
 }
@@ -37,6 +49,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "katex-math": LocalJSX.KatexMath & JSXBase.HTMLAttributes<HTMLKatexMathElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

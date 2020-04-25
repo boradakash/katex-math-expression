@@ -24,5 +24,8 @@
   "devDependencies": {
     "@stencil/core": "^1.12.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "extract-math": "^1.1.0"
+  }
 }

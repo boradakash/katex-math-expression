@@ -11,12 +11,18 @@
 </head>
 <body>
 
-  <!-- <my-component >
-    <span slot="exp">c = \\pm\\sqrt{a^2 + b^2}</span>
-
-  </my-component> -->
   <my-component expression='\int \dfrac{(log\ x)^3}{x}\ dx'>
   </my-component>
-
+  <katex-math>
+<div slot="math">
+  <br/>
+  You can write math expression inside paragraph like this: $x + 1$
+  <br/>
+  <br/>
+  Inline formulas can be written with \$ e.g: $c = \pm\sqrt{a^2 + b^2}$
+  <br/>
+  <br/>and displayed equations can be written using \$$ e.g: $$\sum_{i=1}^n 2^i$$ 
+ </div>
+</katex-math>
 </body>
 </html>
